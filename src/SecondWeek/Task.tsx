@@ -1,4 +1,5 @@
 import React from 'react';
+import Todolist2 from "./Todolist2";
 const tasks1 = [
     {id:1, name:'HTML&CSS', priority:false},
     {id:2, name:'JS', priority:false},
@@ -15,6 +16,8 @@ const tasks2 = [
 const Task = ()=>{
     return (
         <div className="App">
+            <Todolist2 title={'Что я знаю'} tasks={tasks1}/>
+            <Todolist2 title={'Что я говорю'} tasks={tasks2}/>
         </div>
     );
 }
