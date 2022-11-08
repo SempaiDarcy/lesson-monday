@@ -23,15 +23,15 @@ const Todolist = (props:TodolistPropsType) => {
                     <input/>
                     <button>+</button>
                 </div>
-                <ol >{props.affairs.map(el=>{
+                <ul >{props.affairs.map(el=>{
                     return (
                         <div>
-                            <li>{el.name} <input type="checkbox" checked={el.priority}/></li>
+                            <li key={el.id}>{el.name} <input type="checkbox" checked={el.priority}/></li>
                         </div>
                     )
                 })}
                     
-                </ol>
+                </ul>
                 <div>
                     <button>All</button>
                     <button>Active</button>
