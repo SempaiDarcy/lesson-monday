@@ -24,10 +24,12 @@ const Task3 = () => {
 
     if (filter==='active') {
         tasksForTodolist = tasks1.filter(t => t.priority)
-        // tasksForTodolist = tasks1.filter(t => t.priority)
+        // tasksForTodolist = tasks1.filter(t => t.priority === true)
+
     }
     if (filter==='completed') {
         tasksForTodolist = tasks1.filter(t => !t.priority)
+        // tasksForTodolist = tasks1.filter(t => t.priority === false)
     }
 
     function changeFilter(value:FilteredType){
