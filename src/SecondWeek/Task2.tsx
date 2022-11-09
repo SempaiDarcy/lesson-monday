@@ -13,7 +13,7 @@ const tasks2 = [
     {id:3, name:'Yo', priority:false}
 ]
 
-const Task = ()=>{
+const Task2 = ()=>{
     return (
         <div className="App">
             <Todolist2 title={'Что я знаю'} tasks={tasks1}/>
@@ -22,4 +22,4 @@ const Task = ()=>{
     );
 }
 
-export default Task;
+export default Task2;
