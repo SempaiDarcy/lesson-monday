@@ -18,8 +18,8 @@ const Task3 = () => {
         setTasks(filteredTasks)
     }
 
-    function addTask() {
-        let newTask = {id:v1(),name:'Angular', priority:false};
+    function addTask(title:string) {
+        let newTask = {id:v1(),name:title, priority:false};
         let newTasks = [newTask,...tasks]; //деструктуризация массива
         setTasks(newTasks)
     }
