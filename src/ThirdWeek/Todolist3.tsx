@@ -22,7 +22,7 @@ const Todolist3 = (props:TasksPropsType) => {
             <input value={newTaskTitle} onChange={(e)=>{
                 setNewTaskTitle(e.currentTarget.value)}}
                 onKeyDown={(e)=>{
-                    if ( e.ctrlKey && e.key === 'Enter') {
+                    if ( e.key === 'Enter') {
                         props.addTask(newTaskTitle);
                         setNewTaskTitle('');
                     }
