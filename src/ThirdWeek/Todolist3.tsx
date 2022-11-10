@@ -6,6 +6,7 @@ type TasksPropsType = {
     tasks:TaskType[]
     delete:(id:string)=>void
     changeFilter:(value:FilteredType)=>void
+    addTask:()=>void
 }
 type TaskType = {
     id:string,
@@ -18,7 +19,7 @@ const Todolist3 = (props:TasksPropsType) => {
         <div>
             <h3>{ props.title}</h3>
             <input/>
-            <button>+</button>
+            <button onClick={()=>{props.addTask()}}>+</button>
             <ul>{ props.tasks.map(el => <li key={el.id}>
                 <input type="checkbox" checked={el.priority}/>
                 {el.name}

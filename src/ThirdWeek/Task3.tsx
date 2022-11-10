@@ -5,7 +5,7 @@ import {v1} from "uuid";
 export type FilteredType = 'all' | 'active' | 'completed'
 
 const Task3 = () => {
-    const [tasks1,setTasks] =  useState([
+    const [tasks,setTasks] =  useState([
         {id:v1(), name:'HTML&CSS', priority:true},
         {id:v1(), name:'JS', priority:false},
         {id:v1(), name:'ReactJS', priority:true},
@@ -14,21 +14,27 @@ const Task3 = () => {
     ])
 
     function removeTask(id:string){
-        let filteredTasks = tasks1.filter(t=>t.id !== id)
+        let filteredTasks = tasks.filter(t=>t.id !== id)
         setTasks(filteredTasks)
+    }
+
+    function addTask() {
+        let newTask = {id:v1(),name:'Angular', priority:false};
+        let newTasks = [newTask,...tasks]; //деструктуризация массива
+        setTasks(newTasks)
     }
 
     let [filter,setFilter] = useState<FilteredType>("all")
 
-    let tasksForTodolist = tasks1;
+    let tasksForTodolist = tasks;
 
     if (filter==='active') {
-        tasksForTodolist = tasks1.filter(t => t.priority)
+        tasksForTodolist = tasks.filter(t => t.priority)
         // tasksForTodolist = tasks1.filter(t => t.priority === true)
 
     }
     if (filter==='completed') {
-        tasksForTodolist = tasks1.filter(t => !t.priority)
+        tasksForTodolist = tasks.filter(t => !t.priority)
         // tasksForTodolist = tasks1.filter(t => t.priority === false)
     }
 
@@ -42,6 +48,7 @@ const Task3 = () => {
                        tasks={tasksForTodolist}
                        delete={removeTask}
                        changeFilter={changeFilter}
+                       addTask={addTask}
             />
         </div>
     );
