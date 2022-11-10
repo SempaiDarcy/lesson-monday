@@ -20,14 +20,26 @@ const Todolist3 = (props:TasksPropsType) => {
         <div>
             <h3>{ props.title}</h3>
             <input value={newTaskTitle} onChange={(e)=>{
-                setNewTaskTitle(e.currentTarget.value)}}/>
-            <button onClick={()=>{props.addTask(newTaskTitle)}}>+</button>
+                setNewTaskTitle(e.currentTarget.value)}}
+                onKeyDown={(e)=>{
+                    if (e.key === '13') {
+                        props.addTask(newTaskTitle);
+                    }
+                }}
+            />
+
+            <button onClick={()=>{
+                props.addTask(newTaskTitle);
+                setNewTaskTitle('')
+            }}>+</button>
+
             <ul>{ props.tasks.map(el => <li key={el.id}>
                 <input type="checkbox" checked={el.priority}/>
                 {el.name}
                 <button onClick={()=>{props.delete(el.id)}}>x</button>
             </li> )}
             </ul>
+
             <button onClick={()=>{props.changeFilter('all')}}>all</button>
             <button onClick={()=>{props.changeFilter('active')}}>active</button>
             <button onClick={()=>{props.changeFilter('completed')}}>completed</button>
