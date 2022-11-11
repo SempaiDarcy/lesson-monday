@@ -1,7 +1,7 @@
 import Todolist4 from "./Todolist4";
 import {v1} from "uuid";
 
-
+export type FilteredType = 'all' | 'active' | 'completed'
 const task = [
     {id:v1(),name:'Пахать',isDone:true},
     {id:v1(),name:'Трудиться',isDone:true},
