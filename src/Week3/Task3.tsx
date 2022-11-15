@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.css';
 import {Todolist3} from './Todolist3';
 import {v1} from "uuid";
 

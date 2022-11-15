@@ -1,5 +1,5 @@
 import React from 'react';
-import Task3, {FilterValuesType} from "./Task3";
+import {FilterValuesType} from "./Task3";
 
 type TaskType = {
     id: string
