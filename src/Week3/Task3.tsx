@@ -20,6 +20,13 @@ function App() {
         setTasks(filteredTasks);
     }
 
+    function addTask(title:string) {
+        let newTask = {id:v1(), title:"New Task", isDone:false}
+        let newTasks = [newTask,...tasks]//Создаем новый массив тасок в которой в квадратных скобках создаем новый массив. newTask-начало, ...tasks это все элементы которые сидели в старом массиве Tasks
+        setTasks(newTasks)
+
+    }
+
     let [filter, setFilter] = useState<FilterValuesType>("all");
 
     let tasksForTodolist = tasks;
