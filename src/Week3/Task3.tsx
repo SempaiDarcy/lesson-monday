@@ -20,10 +20,10 @@ function App() {
         setTasks(filteredTasks);
     }
 
-    function addTask(title:string) {
+    function addTask() {
         let newTask = {id:v1(), title:"New Task", isDone:false}
         let newTasks = [newTask,...tasks]//Создаем новый массив тасок в которой в квадратных скобках создаем новый массив. newTask-начало, ...tasks это все элементы которые сидели в старом массиве Tasks
-        setTasks(newTasks)
+        setTasks(newTasks)// Закидываем новый массив объекта в setTasks
 
     }
 
@@ -46,9 +46,12 @@ function App() {
     return (
         <div className="App">
             <Todolist3 title="What to learn"
-                      tasks={tasksForTodolist}
-                      removeTask={removeTask}
-                      changeFilter={changeFilter} />
+                       tasks={tasksForTodolist}
+                       removeTask={removeTask}
+                       changeFilter={changeFilter}
+                       addTask={addTask}
+
+            />
         </div>
     );
 }
