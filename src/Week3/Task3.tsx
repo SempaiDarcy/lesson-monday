@@ -36,10 +36,6 @@ function App() {
         setFilter(value);
     }
 
-    function changeStatus(taskId:string) {
-        let task = tasks.find(t=> t.id === taskId);
-        task.isDone = !task.isDone
-    }
 
     return (
         <div className="App">
