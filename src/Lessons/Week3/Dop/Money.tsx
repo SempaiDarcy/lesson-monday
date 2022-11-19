@@ -23,6 +23,13 @@ const Money = () => {
         {banknotes:'RUBLS', number:50,value:'k12345678'},
     ]
 
+    const filterMoney = (money:MoneyType[],filter:BanknotesType): MoneyType[] =>{
+        if (money.filter(el=>el.banknotes==='All')) return defaultMoney
+        else {
+            return money.filter(el=>el.banknotes===filter)
+        }
+    }
+
     return (
         <div>
 
