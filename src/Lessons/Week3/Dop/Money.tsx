@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Country from "./Country";
 
 export type BanknotesType = 'All'|'Dollar' | 'Tenge' | 'RUBLS'
 
@@ -23,16 +24,17 @@ const Money = () => {
         {banknotes:'RUBLS', number:50,value:'k12345678'},
     ]
 
-    const filterMoney = (money:MoneyType[],filter:BanknotesType): MoneyType[] =>{
+    const moneyFilter = (money:MoneyType[],filter:BanknotesType): MoneyType[] =>{
         if (money.filter(el=>el.banknotes==='All')) return defaultMoney
         else {
             return money.filter(el=>el.banknotes===filter)
         }
     }
-
+    const [filter,setFilter] = useState<BanknotesType>('All');
+    const filteredMoney = moneyFilter(defaultMoney,filter)
     return (
         <div>
-
+            <Country data={defaultMoney}/>
         </div>
     );
 };
