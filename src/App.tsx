@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Less3 from "./Practice/Less3/Less3";
+import Money from "./Lessons/Week3/Dop/Money";
 
 
 function App() {
     return (
         <div className="App">
-            <Less3/>
+            <Money/>
         </div>
     );
 }
