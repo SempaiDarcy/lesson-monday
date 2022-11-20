@@ -1,6 +1,7 @@
 import React from 'react';
 import {MoneyType} from "./Money";
 import styled from "styled-components";
+import {CurrentBankomat} from "./CurrentBankomat";
 type CityPropsType = {
     data:MoneyType[]
 }
@@ -9,9 +10,7 @@ type CityPropsType = {
      const mappedMoney = props.data.map((el,index)=>{
          return(
              <div key={index}>
-                 <div>{el.banknotes}</div>
-                 <div>{el.value}</div>
-                 <div>{el.number}</div>
+                <CurrentBankomat money={el}/>
              </div>
          )
      })

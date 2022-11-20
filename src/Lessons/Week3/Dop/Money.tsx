@@ -5,20 +5,20 @@ export type BanknotsType = 'All'|'Dollar' | 'Tenge' | 'RUBLS'
 
 export type MoneyType = {
     banknotes:BanknotsType,
-    number:number,
-    value:string
+    number:string,
+    value:number
 }
 
 let defaultMoney: MoneyType[] = [
-    {banknotes:'Dollar', number:250,value:'a12345678'},
-    {banknotes:'Dollar', number:500,value:'b12345678'},
-    {banknotes:'Tenge', number:250,value:'c12345678'},
-    {banknotes:'Dollar', number:100,value:'d12345678'},
-    {banknotes:'Tenge', number:250,value:'e12345678'},
-    {banknotes:'Dollar', number:1000,value:'f12345678'},
-    {banknotes:'RUBLS', number:100,value:'g12345678'},
-    {banknotes:'Dollar', number:150,value:'h12345678'},
-    {banknotes:'RUBLS', number:50,value:'k12345678'},
+    {banknotes:'Dollar', value:250,number:'a12345678'},
+    {banknotes:'Dollar', value:500,number:'b12345678'},
+    {banknotes:'Tenge', value:250,number:'c12345678'},
+    {banknotes:'Dollar', value:100,number:'d12345678'},
+    {banknotes:'Tenge', value:250,number:'e12345678'},
+    {banknotes:'Dollar', value:1000,number:'f12345678'},
+    {banknotes:'RUBLS', value:100,number:'g12345678'},
+    {banknotes:'Dollar', value:150,number:'h12345678'},
+    {banknotes:'RUBLS', value:50,number:'k12345678'},
 ]
 
 export const moneyFilter = (money:MoneyType[],filter:BanknotsType): MoneyType[] =>{
