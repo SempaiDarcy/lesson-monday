@@ -1,1 +1,2 @@
 yarn add style-components
+yarn add @types/styled-components
