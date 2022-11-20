@@ -1,5 +1,6 @@
 import React from 'react';
 import {BanknotsType, MoneyType} from "./Money";
+import City from "./City";
 
 
 type CountryPropsType = {
@@ -23,22 +24,13 @@ const Country = (props:CountryPropsType) => {
         props.setFilter('Tenge')
     }
 
-    const mappedMoney = props.data.map((el,index)=>{
-        return(
-            <li key={index}>
-                <div>{el.banknotes}</div>
-                <div>{el.value}</div>
-                <div>{el.number}</div>
-            </li>
-            )
-    })
     return (
         <div>
             <button onClick={setAll}>All</button>
             <button onClick={setRUBLS}>RUBLS</button>
             <button onClick={setTenge}>Tenge</button>
             <button onClick={setDollar}>Dollars</button>
-            {mappedMoney}
+            <City data={props.data}/>
         </div>
     );
 };
