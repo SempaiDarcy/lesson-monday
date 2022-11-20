@@ -1,6 +1,6 @@
 import React from 'react';
 import {BanknotsType, MoneyType} from "./Money";
-import City from "./City";
+import {City} from "./City";
 
 
 type CountryPropsType = {
