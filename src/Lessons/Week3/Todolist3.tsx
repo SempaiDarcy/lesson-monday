@@ -21,15 +21,14 @@ export function Todolist3(props: PropsType) {
         <h3>{props.title}</h3>
         <div>
             <input value={title}
-                   onKeyDown={(e)=>{
-                   if (e.key === 'Enter'){
-                       props.addTask(title)
-                       setTitle('')
-                   }
-                   }
-                   }
-                   onChange={(event)=>setTitle(event.currentTarget.value)
-            }/>
+                   onKeyDown={(e) => {
+                       if (e.key === 'Enter') {
+                           props.addTask(title)
+                           setTitle('')
+                       }
+                   }}
+                   onChange={(event) => setTitle(event.currentTarget.value)
+                   }/>
             <button onClick={()=>{
                 props.addTask(title)
                 setTitle('')
