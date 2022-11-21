@@ -20,8 +20,8 @@ function App() {
         setTasks(filteredTasks);
     }
 
-    function addTask() {
-        let newTask:TaskType = {id:v1(), title:"New Task", isDone:false}
+    function addTask(title:string) {
+        let newTask:TaskType = {id:v1(),title, isDone:false}
         let newTasks = [newTask,...tasks]//Создаем новый массив тасок в которой в квадратных скобках создаем новый массив. newTask-начало, ...tasks это все элементы которые сидели в старом массиве Tasks
         setTasks(newTasks)// Закидываем новый массив объекта в setTasks
 
