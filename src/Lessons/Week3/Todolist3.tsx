@@ -17,11 +17,18 @@ type PropsType = {
 
 export function Todolist3(props: PropsType) {
     let [title,setTitle] = useState('')
+
+    const tasksListItems =  props.tasks.map(t => <li key={t.id}>
+        <input type="checkbox" checked={t.isDone}/>
+        <span>{t.title}</span>
+        <button onClick={ () => {
+            props.removeTask(t.id) } }>x</button>
+    </li>)
+
     const addTask = () => {
         props.addTask(title)
         setTitle('')
     }
-
     const setLocalTitle = (event:ChangeEvent<HTMLInputElement>) => setTitle(event.currentTarget.value)
 
     const onEnterAddTask =(event:KeyboardEvent<HTMLInputElement>) => {
@@ -29,6 +36,7 @@ export function Todolist3(props: PropsType) {
             addTask()
         }
     }
+
     return <div>
         <h3>{props.title}</h3>
         <div>
@@ -42,24 +50,11 @@ export function Todolist3(props: PropsType) {
         </div>
         <ul>
             {
-                props.tasks.map(t => <li key={t.id}>
-                    <input type="checkbox" checked={t.isDone}/>
-                    <span>{t.title}</span>
-                    <button onClick={ () => {
-                        props.removeTask(t.id) } }>x</button>
-                </li>)
+                tasksListItems
             }
         </ul>
         <div>
-            <button onClick={ () => { props.changeFilter("all") } }>
-                All
-            </button>
-            <button onClick={ () => { props.changeFilter("active") } }>
-                Active
-            </button>
-            <button onClick={ () => { props.changeFilter("completed") } }>
-                Completed
-            </button>
+
         </div>
     </div>
 }
