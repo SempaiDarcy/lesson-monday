@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Todolist3} from './Todolist3';
+import {TaskType, Todolist3} from './Todolist3';
 import {v1} from "uuid";
 
 export type FilterValuesType = "all" | "active" | "completed";
@@ -21,7 +21,7 @@ function App() {
     }
 
     function addTask() {
-        let newTask = {id:v1(), title:"New Task", isDone:false}
+        let newTask:TaskType = {id:v1(), title:"New Task", isDone:false}
         let newTasks = [newTask,...tasks]//Создаем новый массив тасок в которой в квадратных скобках создаем новый массив. newTask-начало, ...tasks это все элементы которые сидели в старом массиве Tasks
         setTasks(newTasks)// Закидываем новый массив объекта в setTasks
 

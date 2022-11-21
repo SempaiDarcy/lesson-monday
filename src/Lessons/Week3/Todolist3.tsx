@@ -1,7 +1,7 @@
 import React from 'react';
 import {FilterValuesType} from "./Task3";
 
-type TaskType = {
+export type TaskType = {
     id: string
     title: string
     isDone: boolean
