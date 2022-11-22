@@ -37,6 +37,11 @@ export function Todolist3(props: PropsType) {
         }
     }
 
+    /*    const setFilterAll = () => props.changeTodoListFilter("all")
+    const setFilterActive = () => props.changeTodoListFilter("active")
+    const setFilterCompleted = () => props.changeTodoListFilter("completed")*/
+
+
     return <div>
         <h3>{props.title}</h3>
         <div>
