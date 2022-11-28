@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import Button from "./Button";
+import s from './Examen.module.css'
 
 const Examen = () => {
 
@@ -15,12 +17,15 @@ const Examen = () => {
     }
 
     return (
-        <div>
-            <div>{number}</div>
-            <button onClick={Plus}>+</button>
-            <button onClick={Minus}>-</button>
-            <button onClick={Reload}>Reload</button>
-        </div>
+            <div className={s.container}>
+                <div className={s.first}>
+                    <Button buttonName='+' button={Plus}/>
+                    <div className={s.number}>{number}</div>
+                    <Button buttonName='-' button={Minus}/>
+                </div>
+                <Button buttonName='Reload' button={Reload}/>
+            </div>
+
     );
 };
 
