@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Learn from "./Lessons/Week3/Todolist3/Learn";
+import Examen from "./Lessons/Monday/Examen/Examen";
+
 
 
 function App() {
     return (
         <div className="App">
-            <Learn/>
+            <Examen/>
         </div>
     );
 }
