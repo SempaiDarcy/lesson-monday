@@ -1,17 +1,12 @@
 import React, {ChangeEvent, KeyboardEvent, useRef, useState} from 'react';
-import {FilterValuesType} from './Learn';
+import {FilterValuesType, TaskType} from './Learn';
 
-type TaskType = {
-    id: string
-    title: string
-    isDone: boolean
-}
 
 type PropsType = {
     title:string
     tasks: Array<TaskType>
     removeTask: (taskId: string) => void
-    changeFilter: (value: FilterValuesType) => void
+    changeTodolistFilter: (value: FilterValuesType) => void
     addTask: (title: string) => void
 }
 
@@ -34,9 +29,9 @@ export function TodolistLearn(props: PropsType) {
         }
     }
 
-    const onAllClickHandler = () => props.changeFilter("all");
-    const onActiveClickHandler = () => props.changeFilter("active");
-    const onCompletedClickHandler = () => props.changeFilter("completed");
+    const onAllClickHandler = () => props.changeTodolistFilter("all");
+    const onActiveClickHandler = () => props.changeTodolistFilter("active");
+    const onCompletedClickHandler = () => props.changeTodolistFilter("completed");
 
     return <div>
         <h2>{props.title}</h2>
