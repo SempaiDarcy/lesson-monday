@@ -7,7 +7,7 @@ const Examen = () => {
     let [number,setNumber] = useState(0)
 
     const Plus = ()=>{
-        setNumber(number+1)
+        return number===5?setNumber(5): setNumber(number+1)
     }
     const Minus = ()=>{
         return number===0? setNumber(0):setNumber(number-1)
