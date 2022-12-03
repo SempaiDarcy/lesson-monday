@@ -1,23 +1,33 @@
 import React from 'react';
+import Todolist01 from "./Todolist01";
+import classes from "./Step01.module.css";
 
 const Step01 = () => {
+
+    const task1 = [
+        {id:1, title: 'HTML&CSS', isDone:false},
+        {id:1, title: 'JS', isDone:false},
+        {id:1, title: 'ReactJS', isDone:true}
+    ]
+    const task2 = [
+        {id:1, title: 'Angular', isDone:false},
+        {id:1, title: 'Vue', isDone:false},
+        {id:1, title: 'ReactJS', isDone:true}
+    ]
+    const task3 = [
+        {id:1, title: 'Backend', isDone:true},
+        {id:1, title: 'NodeJS', isDone:true},
+        {id:1, title: 'ReactJS', isDone:true}
+    ]
+
+
+
+
     return (
-        <div>
-            <h3>What to learn</h3>
-            <div>
-                <input/>
-                <button>+</button>
-            </div>
-            <ul>
-                <li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
-                <li><input type="checkbox" checked={true}/> <span>JS</span></li>
-                <li><input type="checkbox" checked={false}/> <span>React</span></li>
-            </ul>
-            <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
-            </div>
+        <div className={classes.todolist}>
+            <Todolist01 title={'Что я буду учить'} tasks={task1}/>
+            <Todolist01 title={'Что я хочу учить ?'} tasks={task2}/>
+            <Todolist01 title={'Что мне нравится учить'} tasks={task3}/>
         </div>
     );
 };
