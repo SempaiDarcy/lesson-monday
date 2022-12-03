@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import Task3 from "./Lessons/Monday/Week/Week3/Task3";
-
-
+import Step01 from "./Lessons/Monday/Todolists/Step-01";
 
 function App() {
     return (
         <div className="App">
-            <Task3/>
+            <Step01/>
         </div>
     );
 }
