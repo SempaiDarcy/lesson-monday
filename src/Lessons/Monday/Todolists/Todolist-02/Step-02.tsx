@@ -3,7 +3,7 @@ import Todolist02, {TaskType} from "./Todolist02";
 
 export type FilteredType = 'All' | 'active'| 'completed'
 
-const Step02 = () => {
+ export const Step02 = () => {
     const [tasks,setTasks] = useState<TaskType[]>([
         { id: 1, title: "HTML&CSS", isDone: true },
         { id: 2, title: "JS", isDone: true },
@@ -38,5 +38,3 @@ const Step02 = () => {
             </div>
     );
 };
-
-export default Step02;
