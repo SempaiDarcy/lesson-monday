@@ -21,11 +21,11 @@ const Step02 = () => {
 
     let filteredTask = tasks
 
-    if (filter==='active'){
-        filteredTask = tasks.filter(t=>t.isDone===false)
-    }
     if (filter==='completed'){
-        filteredTask = tasks.filter(t=>t.isDone===true)
+        filteredTask = tasks.filter(t=>!t.isDone)
+    }
+    if (filter==='active'){
+        filteredTask = tasks.filter(t=>t.isDone)
     }
 
     const functionFilter = (value:FilteredType)=>{
