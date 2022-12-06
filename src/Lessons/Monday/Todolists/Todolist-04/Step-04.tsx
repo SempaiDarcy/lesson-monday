@@ -24,6 +24,14 @@ export type FilterValuesType = "all" | "active" | "completed";
         let newTasks = [task, ...tasks];
         setTasks(newTasks);
     }
+    function changeStatus (taskId:string,isDone:boolean)   {
+        let task = tasks.find(t=>t.id === taskId);
+        // debugger
+        if (task) {
+            task.isDone = isDone;
+            setTasks([...tasks])
+        }
+     }
 
     let [filter, setFilter] = useState<FilterValuesType>("all");
 
@@ -41,15 +49,15 @@ export type FilterValuesType = "all" | "active" | "completed";
     }
 
 
-
-    return (
-        <div className="App">
-            <Todolist04 title="What to learn"
-                      tasks={tasksForTodolist}
-                      removeTask={removeTask}
-                      changeFilter={changeFilter}
-                      addTask={addTask} />
-        </div>
+     return (
+         <div className="App">
+             <Todolist04 title="What to learn"
+                         tasks={tasksForTodolist}
+                         removeTask={removeTask}
+                         changeFilter={changeFilter}
+                         addTask={addTask}
+                         changeStatus={changeStatus}/>
+         </div>
     );
 }
 

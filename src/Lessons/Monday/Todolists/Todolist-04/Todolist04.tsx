@@ -7,7 +7,7 @@ type TodoPropsType = {
     removeTask:(id:string)=>void,
     changeFilter:(value:FilterValuesType)=>void,
     addTask:(title:string)=>void
-
+    changeStatus:(taskId:string,isDone:boolean)=>void
 }
 
 type TaskType = {
@@ -22,16 +22,22 @@ const Todolist04 = (props:TodoPropsType) => {
     const [title,setTitle] = useState('')
 
     const tasksListItems = props.tasks.map(el=>{
+        const onClickHandler =() =>props.removeTask(el.id)
+        const onChangeHandler =( e:ChangeEvent<HTMLInputElement>)=> {
+            props.changeStatus(el.id,e.currentTarget.checked)
+        }
         return (
             <ul key={el.id}>
                 <li>
-                    <input type="checkbox" checked={el.isDone}/>
+                    <input type="checkbox" checked={el.isDone} onChange={onChangeHandler}/>
                     <span>{el.title}</span>
-                    <button onClick={()=>props.removeTask(el.id)}>x</button>
+                    <button onClick={onClickHandler}>x</button>
                 </li>
             </ul>
         )
     })
+
+
 
     const addTask = () => {
        if(title.trim()!== '') {
@@ -39,7 +45,7 @@ const Todolist04 = (props:TodoPropsType) => {
            setTitle('')}
     }
 
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>)=>{
         setTitle(e.currentTarget.value)
     }
 
