@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Step03 from "./Lessons/Monday/Todolists/Todolist-03/Step-03";
+import {Step04} from "./Lessons/Monday/Todolists/Todolist-04/Step-04";
 
 function App() {
     return (
         <div className="App">
-            <Step03/>
+            <Step04/>
         </div>
     );
 }
