@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Step05 from "./Lessons/Sunday/Todolists/Todolist05/Step05";
+import Dop5 from "./Lessons/Sunday/Todolists/Dop/Dop5";
 
 function App() {
     return (
         <div className="App">
-            <Step05/>
+            <Dop5/>
         </div>
     );
 }
