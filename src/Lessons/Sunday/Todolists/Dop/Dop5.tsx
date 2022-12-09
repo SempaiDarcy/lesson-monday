@@ -59,20 +59,16 @@ function Dop5() {
     function addTask( todolistID: string, title: string) {
         let newTask = {id: v1(), title: title, isDone: false};
         setTasks({
-            ...tasks,
+            ...tasks,[todolistID]:{...tasks[todolistID],data:[newTask,...tasks[todolistID].data]}
         })
-        // let task = {id: v1(), title: title, isDone: false};
-        // let newTasks = [task, ...tasks];
-        // setTasks(newTasks);
+
     }
 
-    function changeStatus(taskId: string, isDone: boolean) {
-        // let task = tasks.find(t => t.id === taskId);
-        // if (task) {
-        //     task.isDone = isDone;
-        // }
-        //
-        // setTasks([...tasks]);
+    function changeStatus( todolistID: string, taskId: string, isDone: boolean) {
+        setTasks({
+            ...tasks,
+            [todolistID]:{...tasks[todolistID],data:tasks[todolistID].data.map(el=>el.id===taskId ? {...el,isDone} :el)}
+        })
     }
 
 
@@ -85,8 +81,10 @@ function Dop5() {
     //     tasksForTodolist = tasks.filter(t => t.isDone === true);
     // }
 
-    function changeFilter(value: FilterValuesType) {
-        // setFilter(value);
+    function changeFilter(todolistID:string,value: FilterValuesType) {
+        setTasks({
+            ...tasks,[todolistID]: {...tasks[todolistID],filter:value}
+        })
     }
 
 
