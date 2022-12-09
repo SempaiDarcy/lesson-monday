@@ -6,22 +6,21 @@ import styled from "styled-components";
 export type FilterValuesType = "all" | "active" | "completed";
 
 export type TodolistType = {
-    id:string,
-    title:string
+    id: string,
+    title: string
 }
 type DataType = {
     data: TaskType[]
-    filter:FilterValuesType
+    filter: FilterValuesType
 
 }
 
-type TasksStateType={
-    [key:string]:DataType
+type TasksStateType = {
+    [key: string]: DataType
 }
 
 
-
- function Dop5() {
+function Dop5() {
 
     let todolistId1 = v1();
     let todolistId2 = v1();
@@ -32,15 +31,15 @@ type TasksStateType={
     ])
 
     let [tasks, setTasks] = useState<TasksStateType>({
-        [todolistId1]:{
-            data:[
+        [todolistId1]: {
+            data: [
                 {id: v1(), title: "HTML&CSS1111", isDone: true},
                 {id: v1(), title: "JS1111", isDone: true}
             ],
             filter: "all"
-        } ,
-        [todolistId2]:{
-            data:[
+        },
+        [todolistId2]: {
+            data: [
                 {id: v1(), title: "HTML&CSS22222", isDone: true},
                 {id: v1(), title: "JS2222", isDone: true}
             ],
@@ -49,25 +48,19 @@ type TasksStateType={
     });
 
 
-    // let [tasks, setTasks] = useState([
-    //     {id: v1(), title: "HTML&CSS", isDone: true},
-    //     {id: v1(), title: "JS", isDone: true},
-    //     {id: v1(), title: "ReactJS", isDone: false},
-    //     {id: v1(), title: "Rest API", isDone: false},
-    //     {id: v1(), title: "GraphQL", isDone: false},
-    // ]);
+    function removeTask(todolistID: string, taskID: string) {
+        setTasks({
+            ...tasks,
+            [todolistID]: {...tasks[todolistID], data: tasks[todolistID].data.filter(el => el.id !== taskID)}
+        })
 
-    //let [filter, setFilter] = useState<FilterValuesType>("all");
-
-
-    function removeTask(todolistID:string,taskID: string) {
-        setTasks({...tasks,[todolistID]: {...tasks[todolistID],data:tasks[todolistID].data.filter(el=>el.id!==taskID)}})
-        // let filteredTasks = tasks.filter(t => t.id != id);
-        // setTasks(filteredTasks);
     }
 
-    function addTask(title: string) {
-        let newTask = {id:v1(),title:title,isDone:false};
+    function addTask( todolistID: string, title: string) {
+        let newTask = {id: v1(), title: title, isDone: false};
+        setTasks({
+            ...tasks,
+        })
         // let task = {id: v1(), title: title, isDone: false};
         // let newTasks = [task, ...tasks];
         // setTasks(newTasks);
@@ -99,7 +92,7 @@ type TasksStateType={
 
     return (
         <div className="App">
-            {todolists.map(el=>{
+            {todolists.map(el => {
                 let tasksForTodolist = tasks[el.id].data;
 
                 if (tasks[el.id].filter === "active") {
@@ -110,27 +103,29 @@ type TasksStateType={
                 }
 
                 return (
-                    <div><Wrapper>Hello</Wrapper>
-                    <Wrapper>By</Wrapper>
-                    <Todolist05
-                                key={el.id}
-                                todolistID={el.id}
-                                title={el.title}
-                                tasks={tasksForTodolist}
-                                removeTask={removeTask}
-                                changeFilter={changeFilter}
-                                addTask={addTask}
-                                changeTaskStatus={changeStatus}
-                                filter={tasks[el.id].filter}
-                    /></div>
+                    <div>
+                        <Wrapper>Hello</Wrapper>
+                        <Wrapper>By</Wrapper>
+                        <Todolist05
+                            key={el.id}
+                            todolistID={el.id}
+                            title={el.title}
+                            tasks={tasksForTodolist}
+                            removeTask={removeTask}
+                            changeFilter={changeFilter}
+                            addTask={addTask}
+                            changeTaskStatus={changeStatus}
+                            filter={tasks[el.id].filter}
+                        /></div>
                 )
             })}
 
         </div>
     );
 }
-const Wrapper = styled.a` color:red;
-    
+
+const Wrapper = styled.a` color: red;
+
 `
 export default Dop5;
 
