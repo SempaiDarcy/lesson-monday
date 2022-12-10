@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Dop5 from "./Lessons/Sunday/Todolists/Dop/Dop5";
+import Components from "./Lessons/Monday/React-Kabzda-Kak-Podrobno/Week1/Components";
 
 function App() {
     return (
         <div className="App">
-            <Dop5/>
+            <Components/>
         </div>
     );
 }
