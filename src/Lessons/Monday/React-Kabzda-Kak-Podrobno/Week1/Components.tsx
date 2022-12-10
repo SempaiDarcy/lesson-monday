@@ -1,5 +1,6 @@
 import React from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
+import {Rating} from "./components/Rating/Rating";
 
 
 function hello () {
@@ -13,31 +14,11 @@ const Components = () => {
             <Rating/>
             <Accordion/>
             <Rating/>
+
         </div>
     );
 };
-const Rating = ()=>{
-    return (
-        <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
 
-        </div>
-    )
-}
-
-const Star = ()=>{
-    return (
-        <div>
-            <div>star</div>
-        </div>
-    )
-}
 function AppTitle() {
     return <div>This is App component</div>
 }
