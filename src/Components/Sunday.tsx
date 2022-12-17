@@ -32,6 +32,11 @@ const Sunday = () => {
         tasksForTodolist = tasks.filter(el=>!el.isDone)
     }
 
+    const addTask = (title:string) => {
+        let newTask = {id:v1(), title:title, isDone:false}
+        setTasks([newTask,...tasks])
+    }
+
     const changeFilter = (value:FilterType) => {
         setFilter(value)
     }
@@ -41,6 +46,7 @@ const Sunday = () => {
                         tasks={tasksForTodolist}
                         deleteTask={deleteTask}
                         changeFilter={changeFilter}
+                        addTask={addTask}
             />
         </div>
     );
