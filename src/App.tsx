@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Sunday from "./Components/Sunday";
+import Sunday from "./Components/Sunday/Sunday";
 
 function App() {
     return (
