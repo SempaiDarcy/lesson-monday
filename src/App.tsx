@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Sunday from "./Components/Sunday/Sunday";
+import TelegramApp from "./Components/PracticeSunday/Telegram-app";
 
 function App() {
     return (
         <div className="App">
-            <Sunday/>
+            <TelegramApp/>
         </div>
     );
 }
