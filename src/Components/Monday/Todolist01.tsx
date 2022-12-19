@@ -1,6 +1,6 @@
 import React, {ChangeEvent,KeyboardEvent, useState} from 'react';
-import {FilterType, TaskType} from "./Sunday";
-import './Sunday.css'
+import {FilterType, TaskType} from "./Monday";
+import './Monday.css'
 
 type PropsType = {
     title:string,

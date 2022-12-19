@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TelegramApp from "./Components/PracticeSunday/Telegram-app";
+import TelegramApp from "./Components/Monday/PracticeMonday/Telegram/Telegram-app";
 
 function App() {
     return (

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import Telegram, {MessageType} from "./Telegram";
+import s from './Telegram.module.css'
 import avatar1 from "./img/img_2.png";
 import avatar2 from "./img/img_1.png";
 import {v1} from "uuid";
-import message from "./Message";
 
 const TelegramApp = () => {
 
@@ -21,7 +21,7 @@ const TelegramApp = () => {
     ])
 
     return (
-        <div>
+        <div className={s.Telegram}>
             {user.map(el=><Telegram users={user} messages={messages} setMessage={setMessage} thisUser={el}/>)}
         </div>
     );

@@ -9,7 +9,7 @@ export type TaskType = {
     title: string,
     isDone: boolean
 }
-const Sunday = () => {
+const Monday = () => {
 
     const [tasks, setTasks] = useState<TaskType[]>([
         {id: v1(), title: 'HTML', isDone: true},
@@ -61,4 +61,4 @@ const Sunday = () => {
     );
 };
 
-export default Sunday;
+export default Monday;
