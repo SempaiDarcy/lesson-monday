@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {TodolistTuesday} from "./Todolist-tuesday";
 import {v1} from "uuid";
 
-type FilterType = 'all' | 'active' | 'completed'
+export type FilterType = 'all' | 'active' | 'completed'
 
 export type TaskType = {
     id:string,
@@ -20,6 +20,15 @@ const Tuesday = () => {
 
     const [filter,setFilter] = useState<FilterType>('all')
 
+    const addTask=(name:string)=> {
+        let newTask = {id:v1(),name,isDone:false}
+        setTasks([...tasks,newTask])
+    }
+
+    const deleteTask=(id:string)=>{
+        setTasks(tasks.filter(el=>el.id!==id))
+    }
+
     let tasksForTodolist = tasks
 
     if (filter==='active'){
@@ -29,9 +38,19 @@ const Tuesday = () => {
         tasksForTodolist = tasks.filter(el=>!el.isDone)
     }
 
+    const onChangeFilter = (value:FilterType) => {
+        setFilter(value)
+    }
+
     return (
         <div>
-           <TodolistTuesday title={'Я джуниор'} tasks={tasksForTodolist}/>
+           <TodolistTuesday title={'Я джуниор'}
+                            tasks={tasksForTodolist}
+                            onChangeFilter={onChangeFilter}
+                            addTask={addTask}
+                            deleteTask={deleteTask}
+
+           />
         </div>
     );
 };
