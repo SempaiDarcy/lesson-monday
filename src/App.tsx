@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import TelegramApp from "./Components/Monday/PracticeMonday/Telegram/Telegram-app";
+import Tuesday from "./Components/Tuesday/Tuesday";
 
 function App() {
     return (
         <div className="App">
-            <TelegramApp/>
+            <Tuesday/>
         </div>
     );
 }

@@ -32,6 +32,7 @@ const Monday = () => {
         tasksForTodolist = tasks.filter(el=>!el.isDone)
     }
 
+
     const addTask = (title:string) => {
         let newTask = {id:v1(), title:title, isDone:false}
         setTasks([newTask,...tasks])
