@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Column from "./Column";
+import './Kanban.css'
 //kanban application
 //kanban statuses
 
@@ -19,8 +20,8 @@ const initialTasks = [
     {id: 5, title: 'Task 5', status: 'todo', priority: 5},
 ]
 const Kanban = () => {
-    const [tasks, setTasks] = useState(initialTasks)
 
+    const [tasks, setTasks] = useState(initialTasks)
 
     return (
         <div>
