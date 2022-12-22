@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Column from "./Column";
 import './Kanban.css'
+import CreateTaskForm from "./CreateTaskForm";
 //kanban application
 //kanban statuses
 
@@ -23,9 +24,22 @@ const Kanban = () => {
 
     const [tasks, setTasks] = useState(initialTasks)
 
+    const onStatusChange = (id:number,newStatus:string) => {
+        setTasks(tasks.map((el=>el.id===id?{...el,status: newStatus}:el)))
+    }
+
+
+
     return (
-        <div>
-            <Column tasks={tasks}/>
+        <div className={'container'}>
+
+            <div className={'row'}>{taskStatuses.map((status) => (
+                <Column tasks={tasks}
+                        status={status}
+                        statuses={taskStatuses}
+                        onStatusChange={onStatusChange}
+                />
+            ))}</div>
         </div>
     );
 };
