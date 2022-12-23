@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Chess from "./Components/Tuesday/TuesdayPractice/Chess-App/Chess";
+import Kanban from "./Components/Tuesday/TuesdayPractice/Kanban-App/Kanban";
 
 function App() {
     return (
         <div>
-            <Chess/>
+            <Kanban/>
         </div>
     );
 }

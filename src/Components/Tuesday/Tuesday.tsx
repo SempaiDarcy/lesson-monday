@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Tuesday.css'
 import {TodolistTuesday} from "./Todolist-tuesday";
 import {v1} from "uuid";
 
@@ -9,7 +10,9 @@ export type TaskType = {
     title:string,
     isDone:boolean
 }
+
 const Tuesday = () => {
+
     let [tasks, setTasks] = useState<TaskType[]>([
         {id: v1(), title: "HTML&CSS", isDone: true},
         {id: v1(), title: "JS", isDone: true},
@@ -57,7 +60,8 @@ const Tuesday = () => {
 
     return (
         <div className="App">
-            <TodolistTuesday title="What to learn"
+            <TodolistTuesday
+                      title="What to learn"
                       tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}

@@ -22,17 +22,20 @@ const initialTasks = [
 ]
 const Kanban = () => {
 
-    const [tasks, setTasks] = useState(initialTasks)
+    const [tasks, setTasks] = useState<TasksType[]>(initialTasks)
 
     const onStatusChange = (id:number,newStatus:string) => {
         setTasks(tasks.map((el=>el.id===id?{...el,status: newStatus}:el)))
     }
 
-
+    const addTask = (title:string, priority:number) => {
+        let newTask = {id:Math.random(),title,status:'todo',priority}
+        setTasks([...tasks,newTask])
+    }
 
     return (
         <div className={'container'}>
-
+            <CreateTaskForm addTask={addTask}/>
             <div className={'row'}>{taskStatuses.map((status) => (
                 <Column tasks={tasks}
                         status={status}
