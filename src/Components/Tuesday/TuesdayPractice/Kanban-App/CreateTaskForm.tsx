@@ -3,7 +3,6 @@ type TaskForm = {
     addTask:(title:string, priority:number)=>void
 }
 const CreateTaskForm = (props:TaskForm) => {
-    const [taskStatuses,setTaskStatuses] = useState('')
     const [title,setTitle] = useState('')
     const [priority,setPriority] = useState(1)
 
