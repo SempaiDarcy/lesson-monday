@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Kanban from "./Components/Tuesday/TuesdayPractice/Kanban-App/Kanban";
+import Tuesday from "./Components/Tuesday/Tuesday";
 
 function App() {
     return (
         <div>
-            <Kanban/>
+            <Tuesday/>
         </div>
     );
 }
