@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Tuesday from "./Components/Tuesday/Tuesday";
+import LocalStorageUseEffect from "./Components/Tuesday/LocalStorage/UseEffect/LocalStorageUseEffect";
 
 function App() {
     return (
         <div>
-            <Tuesday/>
+            <LocalStorageUseEffect/>
         </div>
     );
 }
