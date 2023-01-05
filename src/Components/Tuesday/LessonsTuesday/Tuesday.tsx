@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Tuesday.css'
 import {TodolistTuesday,TaskType} from "./Todolist-tuesday";
 import {v1} from "uuid";
+import {Input} from "./components/Input";
 
 export type FilterValuesType= 'all' | 'active' | 'completed'
 
@@ -20,6 +21,7 @@ const Tuesday = () => {
         {id: todolistID1, title: 'What to learn', filter: 'all'},
         {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
+    console.log(todolists)
 
     let [tasks, setTasks] = useState<TasksType>({
         [todolistID1]: [
@@ -46,13 +48,19 @@ const Tuesday = () => {
         setTasks({...tasks});
     }
 
-    function addTask(title: string, todolistId:string) {
+    function addTask(todolistId:string, title: string) {
         let task = {id: v1(), title: title, isDone: false};
         let todolistTasks = tasks[todolistId];
         tasks[todolistId] = [task,...todolistTasks]
         setTasks({...tasks});
     }
 
+    const addTodolist = (title:string)=>{
+        const newID=v1()
+        let newTodo:TodolistsType = {id:newID, title, filter:'all'}
+        setTodolists([...todolists,newTodo])
+        setTasks({[newID]:[],...tasks})
+    }
     function changeTaskStatus(taskID:string,isDone:boolean,todolistId:string) {
         setTasks({...tasks,[todolistId]:tasks[todolistId].map(el=>el.id===taskID ? {...el,isDone} :el)})
     }
@@ -67,6 +75,7 @@ const Tuesday = () => {
 
     return (
         <div className="App">
+            <Input callBack={addTodolist} />
             {todolists.map(el=>{
                 let tasksForTodolist = tasks[el.id];
 
@@ -79,7 +88,7 @@ const Tuesday = () => {
                 return (
                     <TodolistTuesday
                         key={el.id}
-                        todolistID ={el.id}
+                        id ={el.id}
                         title={el.title}
                         tasks={tasksForTodolist}
                         removeTask={removeTask}
