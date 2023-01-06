@@ -3,6 +3,8 @@ import './Tuesday.css'
 import {FilterValuesType} from "./Tuesday";
 import {Input} from "./components/Input";
 import {EditableSpan} from "./components/EditableSpan";
+import {Button} from "@mui/material";
+
 
 export type TaskType = {
     id:string
@@ -48,7 +50,8 @@ type TodoProps = {
         <div>
             <h3>
                 <EditableSpan title={props.title} callBack={updateTodoHandler}/>
-                <button onClick={deleteTodolist}>X</button>
+                {/*<button onClick={deleteTodolist}>X</button>*/}
+                <Button onClick={deleteTodolist} variant="contained">X</Button>
             </h3>
             <div>
                 <Input callBack={addTaskHandler} />
