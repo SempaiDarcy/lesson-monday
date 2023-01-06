@@ -19,7 +19,8 @@ type TodoProps = {
     changeTaskStatus:(id:string,isDone:boolean,todolistId:string)=>void
     filter:FilterValuesType
     removeTodolist:(todolistID:string)=>void
-    updateTask:(todolistID:string, taskId:string, title:string)=>void
+    updateTask:(todolistID:string, taskId:string, newTitle:string)=>void
+    updateTodolist:(todolistId:string,newTitle:string)=>void
 
 }
  export const TodolistTuesday = (props:TodoProps) => {
@@ -40,10 +41,13 @@ type TodoProps = {
      const addTaskHandler = (newTitle:string) => {
          props.addTask(props.id,newTitle)
      }
-
+    const updateTodoHandler = (newTitle:string) => {
+            props.updateTodolist(props.id,newTitle)
+    }
     return (
         <div>
-            <h3>{props.title}
+            <h3>
+                <EditableSpan title={props.title} callBack={updateTodoHandler}/>
                 <button onClick={deleteTodolist}>X</button>
             </h3>
             <div>
