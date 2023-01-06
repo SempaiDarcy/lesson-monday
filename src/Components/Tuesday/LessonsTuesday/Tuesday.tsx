@@ -36,10 +36,13 @@ const Tuesday = () => {
         ]
     })
 
+    const updateTask = (todolistID:string, taskId:string, newTitle:string) => {
+        setTasks({...tasks,[todolistID]:tasks[todolistID].map(el=>el.id===taskId ? {...el,title:newTitle}:el)})
+    }
+
     const removeTodolist = (todolistID:string) => {
         setTodolists(todolists.filter(el=>el.id!==todolistID))
         delete tasks[todolistID]
-        console.log(tasks)
     }
 
     function removeTask(id: string,todolistId:string) {
@@ -97,6 +100,7 @@ const Tuesday = () => {
                         changeTaskStatus={changeTaskStatus}
                         filter={el.filter}
                         removeTodolist={removeTodolist}
+                        updateTask={updateTask}
                     />
                 )
             })}

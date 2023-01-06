@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import './Tuesday.css'
 import {FilterValuesType} from "./Tuesday";
 import {Input} from "./components/Input";
@@ -19,6 +19,7 @@ type TodoProps = {
     changeTaskStatus:(id:string,isDone:boolean,todolistId:string)=>void
     filter:FilterValuesType
     removeTodolist:(todolistID:string)=>void
+    updateTask:(todolistID:string, taskId:string, title:string)=>void
 
 }
  export const TodolistTuesday = (props:TodoProps) => {
@@ -39,6 +40,7 @@ type TodoProps = {
      const addTaskHandler = (newTitle:string) => {
          props.addTask(props.id,newTitle)
      }
+
     return (
         <div>
             <h3>{props.title}
@@ -48,16 +50,21 @@ type TodoProps = {
                 <Input callBack={addTaskHandler} />
             </div>
 
-            <ul>{props.tasks.map(task => {
+            <ul>
+                {props.tasks.map(task => {
                 const onCLickHandler=()=>{props.removeTask(task.id,props.id)}
 
                 const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
                     props.changeTaskStatus(task.id, e.currentTarget.checked,props.id);
                 }
 
+                const updateTaskHandler = (newTitle:string) => {
+                    props.updateTask(props.id,task.id,newTitle)
+                }
+
                 return <li key={task.id} className={task.isDone ? 'is-done':''}>
                     <input type="checkbox" onChange={onChangeHandler} checked={task.isDone}/>
-                    <EditableSpan title={task.title}/>
+                    <EditableSpan title={task.title} callBack={updateTaskHandler}/>
                     <button onClick={onCLickHandler}>x</button>
                 </li>
             })
