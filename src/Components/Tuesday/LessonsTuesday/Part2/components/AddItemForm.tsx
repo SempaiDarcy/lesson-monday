@@ -1,4 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {Button} from "@mui/material";
 
 type InputPropsType = {
     callBack:(title:string)=>void
@@ -34,7 +35,8 @@ export const AddItemForm = (props:InputPropsType) => {
                    onKeyDown={onKeyDownHandler}
             />
 
-            <button onClick={callBackStarter}>+</button>
+
+            <Button size='small' variant='contained' onClick={callBackStarter} style={{maxWidth:'40px',minWidth:'40px',minHeight:'15px'}}>+</Button>
             {error && <div className={'error-message'}>{error}</div>}
         </div>
     );
