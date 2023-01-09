@@ -19,6 +19,7 @@ type TelegramProps = {
     messages:MessageType[]
     thisUser:UserType
     setMessage:(messages:MessageType[])=>void
+    iteration:number
 }
 const Telegram = (props:TelegramProps) => {
 
@@ -61,12 +62,12 @@ const Telegram = (props:TelegramProps) => {
         <div className={'Telegram'}>
             <div>{props.messages.map(el => {
                 const thisUser = props.users.filter(elem => elem.id === el.userID)[0]
-
-                return <Message
-                    message={el}
-                    user={thisUser}
-                />
-            })}
+                return  <Message
+                                iteration={props.iteration}
+                                message={el}
+                                user={thisUser}
+                            />
+                })}
                 <input type="text" value={text} onChange={onChangeHandler} onKeyDown={onKeyDownHandler}/>
                 <button disabled={isDisabled} onClick={onClickHandler}>Отправить</button>
             </div>

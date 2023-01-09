@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Tuesday from "./Components/Tuesday/LessonsTuesday/Tuesday";
+import TelegramApp from "./Components/Monday/PracticeMonday/Telegram/Telegram-app";
 
 
 function App() {
     return (
         <div>
-            <Tuesday/>
+            <TelegramApp/>
         </div>
     );
 }
