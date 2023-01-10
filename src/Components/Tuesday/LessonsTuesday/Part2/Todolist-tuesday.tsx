@@ -6,6 +6,7 @@ import {EditableSpan} from "./components/EditableSpan";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from '@mui/icons-material/Delete';
+import Checkbox from "@mui/material/Checkbox";
 
 
 export type TaskType = {
@@ -74,7 +75,8 @@ type TodoProps = {
                 }
 
                 return <li key={task.id} className={task.isDone ? 'is-done':''}>
-                    <input type="checkbox" onChange={onChangeHandler} checked={task.isDone}/>
+                    {/*<input type="checkbox" onChange={onChangeHandler} checked={task.isDone}/>*/}
+                    <Checkbox defaultChecked onChange={onChangeHandler} checked={task.isDone}/>
                     <EditableSpan title={task.title} callBack={updateTaskHandler}/>
                     {/*<button onClick={onCLickHandler}>x</button>*/}
                     <IconButton aria-label='delete' onClick={onCLickHandler}>

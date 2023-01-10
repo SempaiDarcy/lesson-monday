@@ -22,6 +22,9 @@ const TelegramApp = () => {
 
     return (
         <div className={s.Telegram}>
+            <ul></ul>
+            <ul></ul>
+            <ul></ul>
             {user.map((el, i) =><Telegram iteration={i} users={user} messages={messages} setMessage={setMessage} thisUser={el}/>)}
         </div>
     );

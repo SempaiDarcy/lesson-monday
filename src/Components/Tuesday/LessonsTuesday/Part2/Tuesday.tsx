@@ -3,6 +3,9 @@ import './Tuesday.css'
 import {TodolistTuesday,TaskType} from "./Todolist-tuesday";
 import {v1} from "uuid";
 import {AddItemForm} from "./components/AddItemForm";
+import ButtonAppBar from "./components/ButtonAppBar";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 export type FilterValuesType= 'all' | 'active' | 'completed'
 
@@ -78,36 +81,37 @@ const Tuesday = () => {
     }
 
 
-
     return (
         <div className="App">
-            <AddItemForm callBack={addTodolist} />
-            {todolists.map(el=>{
-                let tasksForTodolist = tasks[el.id];
+            <ButtonAppBar/>
+            <Container fixed>
+                <Grid container><AddItemForm callBack={addTodolist}/></Grid>
+                <Grid container>{todolists.map(el => {
+                    let tasksForTodolist = tasks[el.id];
 
-                if (el.filter === "active") {
-                    tasksForTodolist = tasks[el.id].filter(t => t.isDone);
-                }
-                if (el.filter === "completed") {
-                    tasksForTodolist = tasks[el.id].filter(t => !t.isDone);
-                }
-                return (
-                    <TodolistTuesday
-                        key={el.id}
-                        id ={el.id}
-                        title={el.title}
-                        tasks={tasksForTodolist}
-                        removeTask={removeTask}
-                        changeFilter={changeFilter}
-                        addTask={addTask}
-                        changeTaskStatus={changeTaskStatus}
-                        filter={el.filter}
-                        removeTodolist={removeTodolist}
-                        updateTask={updateTask}
-                        updateTodolist={updateTodolist}
-                    />
-                )
-            })}
+                    if (el.filter === "active") {
+                        tasksForTodolist = tasks[el.id].filter(t => t.isDone);
+                    }
+                    if (el.filter === "completed") {
+                        tasksForTodolist = tasks[el.id].filter(t => !t.isDone);
+                    }
+                    return (
+                        <TodolistTuesday
+                            key={el.id}
+                            id={el.id}
+                            title={el.title}
+                            tasks={tasksForTodolist}
+                            removeTask={removeTask}
+                            changeFilter={changeFilter}
+                            addTask={addTask}
+                            changeTaskStatus={changeTaskStatus}
+                            filter={el.filter}
+                            removeTodolist={removeTodolist}
+                            updateTask={updateTask}
+                            updateTodolist={updateTodolist}
+                        />
+                    )
+                })}</Grid></Container>
         </div>
     );
 }
