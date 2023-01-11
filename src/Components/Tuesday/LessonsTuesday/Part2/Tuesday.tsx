@@ -6,6 +6,7 @@ import {AddItemForm} from "./components/AddItemForm";
 import ButtonAppBar from "./components/ButtonAppBar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper"
 
 export type FilterValuesType= 'all' | 'active' | 'completed'
 
@@ -30,8 +31,6 @@ const Tuesday = () => {
         [todolistID1]: [
             {id: v1(), title: 'HTML&CSS', isDone: true},
             {id: v1(), title: 'JS', isDone: true},
-            {id: v1(), title: 'ReactJS', isDone: false},
-
         ],
         [todolistID2]: [
             {id: v1(), title: 'Rest API', isDone: true},
@@ -85,8 +84,12 @@ const Tuesday = () => {
         <div className="App">
             <ButtonAppBar/>
             <Container fixed>
-                <Grid container><AddItemForm callBack={addTodolist}/></Grid>
-                <Grid container>{todolists.map(el => {
+                <Grid container>
+                    <Grid style={{padding:'20px'}}><AddItemForm callBack={addTodolist}/></Grid>
+                </Grid>
+                <Grid container spacing={3}>
+                    {
+                        todolists.map(el => {
                     let tasksForTodolist = tasks[el.id];
 
                     if (el.filter === "active") {
@@ -96,22 +99,28 @@ const Tuesday = () => {
                         tasksForTodolist = tasks[el.id].filter(t => !t.isDone);
                     }
                     return (
-                        <TodolistTuesday
-                            key={el.id}
-                            id={el.id}
-                            title={el.title}
-                            tasks={tasksForTodolist}
-                            removeTask={removeTask}
-                            changeFilter={changeFilter}
-                            addTask={addTask}
-                            changeTaskStatus={changeTaskStatus}
-                            filter={el.filter}
-                            removeTodolist={removeTodolist}
-                            updateTask={updateTask}
-                            updateTodolist={updateTodolist}
-                        />
+                        <Grid item>
+                            <Paper style={{padding:'10px'}}>
+                                <TodolistTuesday
+                                    key={el.id}
+                                    id={el.id}
+                                    title={el.title}
+                                    tasks={tasksForTodolist}
+                                    removeTask={removeTask}
+                                    changeFilter={changeFilter}
+                                    addTask={addTask}
+                                    changeTaskStatus={changeTaskStatus}
+                                    filter={el.filter}
+                                    removeTodolist={removeTodolist}
+                                    updateTask={updateTask}
+                                    updateTodolist={updateTodolist}/>
+                            </Paper>
+                        </Grid>
                     )
-                })}</Grid></Container>
+                })
+                    }
+                </Grid>
+            </Container>
         </div>
     );
 }
